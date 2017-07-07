@@ -6,3 +6,7 @@ Main features:
 - Scanner modules (tcp port scanner and banner grabber, common vulnerabilities (SQL, LFI, RFI, XSS, Commands injection) )
 - Cracker modules (ftp, http, facebook)
 - Proxy use (http, socks4 & socks5 from SocksiPy by Dan-Haim) 
+
+
+install:
+--unzip wordlist/pass.zip
