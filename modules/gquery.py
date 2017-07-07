@@ -59,7 +59,7 @@ class gquery:
 			for link in soup.select('.r a'):
 				res = urlparse.parse_qs(urlparse.urlparse(link['href']).query)['q'][0]
 				self.results += res + "\n"
-				print res
+				print (res)
 		except:
 			self.results = "No results found"
 			print ("[-] Failed to connect to google")
