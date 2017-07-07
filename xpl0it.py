@@ -63,17 +63,17 @@ modules_list = ["gquery", "grabber", "vscan", "pscan", "fbcrack", "ftpcrack", "h
 commands_list = ["help", "bash", "load", "modules"]
 
 def print_usage():
-	print banner
-	print "\nUsage: python ./xpl0it.py [Options]"
-	print "\n[Options]"
-	print "  -h, --help\tPrint this help message"
-	print "  -v VERBOSE\tSet verbose mode"
-	print "  -p PROXY\tSet proxy address (host:port)"
-	print "    --http\tHttp proxy type"
-	print "    --socks4\tSocks4 proxy type"
-	print "    --socks5\tSocks5 proxy type"
-	print "\n[Example]"
-	print "  python ./xpl0it.py -v -p 127.0.0.1:9050 --socks5\n" #Tor proxy
+	print (banner)
+	print ("\nUsage: python ./xpl0it.py [Options]")
+	print ("\n[Options]")
+	print ("  -h, --help\tPrint this help message")
+	print ("  -v VERBOSE\tSet verbose mode")
+	print ("  -p PROXY\tSet proxy address (host:port)")
+	print ("    --http\tHttp proxy type")
+	print ("    --socks4\tSocks4 proxy type")
+	print ("    --socks5\tSocks5 proxy type")
+	print ("\n[Example]")
+	print ("  python ./xpl0it.py -v -p 127.0.0.1:9050 --socks5\n") #Tor proxy
 		
 def setup_prompt():
 	hf = os.path.expanduser("__history__")
@@ -89,13 +89,13 @@ def bash_execute(args):
 
 def load_module(module_name, args):
 	if not module_name in modules_list:
-		print "\n[-] Unknown module '%s'" %(module_name)
-		print "[!] Type \"modules\" for modules list\n"
+		print ("\n[-] Unknown module '%s'" %(module_name))
+		print ("[!] Type \"modules\" for modules list\n")
 	else:
 		if module_name == "gquery":
 			if len(args[1:len(args)]) < 2: 
-				print "\n[-] Not enough arguments"
-				print "[!] Type \"modules %s\" for more infos\n" %(module_name)
+				print ("\n[-] Not enough arguments")
+				print ("[!] Type \"modules %s\" for more infos\n" %(module_name))
 			else:
 				args_tuple = (None, args[2:], proxy_address, proxy_type, verbose_mode)
 				gq = gquery(args_tuple)
@@ -103,8 +103,8 @@ def load_module(module_name, args):
 				gq.generate_report()
 		elif module_name == "grabber":
 			if len(args[1:len(args)]) < 2: 
-				print "\n[-] Not enough arguments"
-				print "[!] Type \"modules %s\" for more infos\n" %(module_name)
+				print ("\n[-] Not enough arguments")
+				print ("[!] Type \"modules %s\" for more infos\n" %(module_name))
 			else:
 				args_tuple = (None, args[2], proxy_address, proxy_type, verbose_mode)
 				gb = grabber(args_tuple)
@@ -112,8 +112,8 @@ def load_module(module_name, args):
 				gb.generate_report()
 		elif module_name == "pscan":
 			if len(args[1:len(args)]) < 2: 
-				print "\n[-] Not enough arguments"
-				print "[!] Type \"modules %s\" for more infos\n" %(module_name)
+				print ("\n[-] Not enough arguments")
+				print ("[!] Type \"modules %s\" for more infos\n" %(module_name))
 			else:
 				args_tuple = (None, args[2], proxy_address, proxy_type, verbose_mode)
 				ps = pscan(args_tuple)
@@ -121,8 +121,8 @@ def load_module(module_name, args):
 				ps.generate_report()
 		elif module_name == "fbcrack":
 			if len(args[1:len(args)]) < 2:
-				print "\n[-] Not enough arguments"
-				print "[!] Type \"modules %s\" for more infos\n" %(module_name)
+				print ("\n[-] Not enough arguments")
+				print ("[!] Type \"modules %s\" for more infos\n" %(module_name))
 			else:
 				args_tuple = (None, args[2], proxy_address, proxy_type, verbose_mode)
 				fb = fbcrack(args_tuple)
@@ -130,8 +130,8 @@ def load_module(module_name, args):
 				fb.generate_report()
 		elif module_name == "ftpcrack":
 			if len(args[1:len(args)]) < 3: 
-				print "\n[-] Not enough arguments"
-				print "[!] Type \"modules %s\" for more infos\n" %(module_name)
+				print ("\n[-] Not enough arguments")
+				print ("[!] Type \"modules %s\" for more infos\n" %(module_name))
 			else:
 				args_tuple = (None, args[2], args[3], proxy_address, proxy_type, verbose_mode)
 				ftp = ftpcrack(args_tuple)
@@ -139,8 +139,8 @@ def load_module(module_name, args):
 				ftp.generate_report()
 		elif module_name == "httpcrack":
 			if len(args[1:len(args)]) < 5: 
-				print "\n[-] Not enough arguments"
-				print "[!] Type \"modules %s\" for more infos\n" %(module_name)
+				print ("\n[-] Not enough arguments")
+				print ("[!] Type \"modules %s\" for more infos\n" %(module_name))
 			else:
 				args_tuple = (None, args[2], args[3], args[4], args[5], proxy_address, proxy_type, verbose_mode)
 				http = httpcrack(args_tuple)
@@ -148,8 +148,8 @@ def load_module(module_name, args):
 				http.generate_report()
 		else:
 			if len(args[1:len(args)]) < 2: 
-				print "\n[-] Not enough arguments"
-				print "[!] Type \"modules %s\" for more infos\n" %(module_name)
+				print ("\n[-] Not enough arguments")
+				print ("[!] Type \"modules %s\" for more infos\n" %(module_name))
 			else:
 				args_tuple = (None, args[2], proxy_address, proxy_type, verbose_mode)
 				vs = vscan(args_tuple)
@@ -160,23 +160,23 @@ def check_commands(cmds):
 	cmd = cmds.split(" ")
 	 
 	if not cmd[0] in commands_list:
-		print "\n[-] Unknown command '%s'" %(cmd[0])
-		print "[!] Type \"help\" for commands list\n"
+		print ("\n[-] Unknown command '%s'" %(cmd[0]))
+		print ("[!] Type \"help\" for commands list\n")
 	else:
 		if cmd[0] == "help": 
 			hlp = helper("")
 			hlp.print_help()
 		elif cmd[0] == "bash":
 			if len(cmd) < 2: 
-				print "\n[-] Not enough arguments" 
-				print "[!] Usage: bash [command]\n"
+				print ("\n[-] Not enough arguments") 
+				print ("[!] Usage: bash [command]\n")
 			else: 
 				bash_execute(cmd)
 		elif cmd[0] == "load":
 			if len(cmd) - 1 < 2: 
-				print "\n[-] Not enough arguments"
-				print "[!] Usage: load [module name] [arguments]"
-				print "[!] Type \"modules\" for modules list\n"
+				print ("\n[-] Not enough arguments")
+				print ("[!] Usage: load [module name] [arguments]")
+				print ("[!] Type \"modules\" for modules list\n")
 			else: 
 				load_module(cmd[1], cmd)
 		else:
@@ -185,8 +185,8 @@ def check_commands(cmds):
 				hlp.print_modules() 
 			else:
 				if not cmd[1] in modules_list:
-					print "\n[-] Unknown module '%s'" %(cmd[1])
-					print "[!] Type \"modules\" for modules list\n"
+					print ("\n[-] Unknown module '%s'" %(cmd[1]))
+					print ("[!] Type \"modules\" for modules list\n")
 				else:
 					hlp = helper(cmd[1])
 					hlp.print_help() 
@@ -232,7 +232,7 @@ def main():
 	
 	if proxy_address != "":
 		if check_proxy(proxy_address) == False:
-			print "[-] Invalid proxy address"
+			print ("[-] Invalid proxy address")
 			sys.exit(1)
 	
 	if get_argv_bool("-http") == True:
@@ -243,7 +243,7 @@ def main():
 		proxy_type = 2
 		
 	setup_prompt()
-	print banner 
+	print (banner) 
 	main_loop()
 	
 if __name__ == '__main__':

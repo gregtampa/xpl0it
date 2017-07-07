@@ -25,24 +25,24 @@ class gquery:
 		self.results = ""
 			
 	def search_query(self):
-		print "\n[+] Query: " + self.query
+		print ("\n[+] Query: " + self.query)
 		if self.verbose == 1:
-			print "[!] Checking proxy..."
+			print ("[!] Checking proxy...")
 			
 		if self.proxy != "":
 			hst, prt = parse_address(self.proxy)
 			pr = proxy(hst, prt, self.proxy_type)
 			if pr.set_browser_proxy() == True:  
-				print "[+] Proxy: " + self.proxy
+				print ("[+] Proxy: " + self.proxy)
 			else:
-				print "[-] Invalid or dead proxy"
+				print ("[-] Invalid or dead proxy")
 		else:
-			print "[-] Proxy not set"
+			print ("[-] Proxy not set"
 				
 		print
 		
 		if self.verbose == 1:
-			print "[!] Connecting to google...\n"
+			print ("[!] Connecting to google...\n")
 		br = browser()
 				
 		try:
@@ -54,7 +54,7 @@ class gquery:
 			soup = BeautifulSoup(src, "lxml")
 				
 			if self.verbose == 1:
-				print "[!] Query search results\n"
+				print ("[!] Query search results\n")
 			
 			for link in soup.select('.r a'):
 				res = urlparse.parse_qs(urlparse.urlparse(link['href']).query)['q'][0]
@@ -62,8 +62,8 @@ class gquery:
 				print res
 		except:
 			self.results = "No results found"
-			print "[-] Failed to connect to google"
-			print "[-] " + self.results + "\n"
+			print ("[-] Failed to connect to google")
+			print ("[-] " + self.results + "\n")
 				
 	def generate_report(self):
 		date = time.strftime("%d-%m-%Y")
