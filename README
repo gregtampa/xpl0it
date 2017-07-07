@@ -1,0 +1,8 @@
+xpl0it is a penetration testing toolkit framework. 
+
+Main features:
+
+- Reconnaissance modules (google query, link grabber)
+- Scanner modules (tcp port scanner and banner grabber, common vulnerabilities (SQL, LFI, RFI, XSS, Commands injection) )
+- Cracker modules (ftp, http, facebook)
+- Proxy use (http, socks4 & socks5 from SocksiPy by Dan-Haim) 
